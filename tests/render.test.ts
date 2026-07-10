@@ -85,6 +85,14 @@ describe("renderResultsList", () => {
     expect(container.querySelectorAll(".result-card").length).toBe(0);
   });
 
+  it("gives two variants of the same base model distinct detail ids", () => {
+    const container = document.createElement("div");
+    renderResultsList(container, [rec(), rec({ variant: { ...variant, quant: "Q8_0" } })], spec);
+
+    const ids = [...container.querySelectorAll(".result-card__detail")].map((el) => el.id);
+    expect(new Set(ids).size).toBe(2);
+  });
+
   it("clears prior results before rendering a new list", () => {
     const container = document.createElement("div");
     renderResultsList(container, [rec()], spec);
