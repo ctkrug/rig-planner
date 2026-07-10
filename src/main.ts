@@ -21,7 +21,7 @@ function pageHtml(): string {
     <div class="page">
       <header class="site-header">
         <p class="eyebrow">Local LLM fit planner</p>
-        <h1 class="wordmark">Rig<span class="wordmark__accent">Planner</span></h1>
+        <h1 class="wordmark">Rig<span class="wordmark__accent">fit</span></h1>
         <p class="tagline">
           Enter your GPU and RAM. Get a ranked list of local LLMs and quantizations you can run
           right now, refreshed weekly against what's trending.
