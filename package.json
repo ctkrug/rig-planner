@@ -5,6 +5,9 @@
   "description": "Tell it your GPU and RAM; it recommends the best local LLM + quantization to run right now.",
   "type": "module",
   "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -p tsconfig.json --noEmit && vite build",
