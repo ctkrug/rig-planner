@@ -34,3 +34,17 @@ export interface Recommendation extends FitResult {
   variant: ModelVariant;
   trending: boolean;
 }
+
+/** One "what's hot" signal pulled from Hugging Face or Hacker News by the weekly refresh script. */
+export interface TrendingEntry {
+  source: "huggingface" | "hackernews";
+  id: string;
+  title: string;
+  url: string;
+  score: number;
+}
+
+export interface TrendingSnapshot {
+  fetchedAt: string;
+  entries: TrendingEntry[];
+}
