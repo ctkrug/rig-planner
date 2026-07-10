@@ -13,11 +13,13 @@
     "build": "tsc -p tsconfig.json --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "refresh-data": "tsx scripts/refresh-trending.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",
+    "@vitest/coverage-v8": "^4.1.10",
     "jsdom": "^29.1.1",
     "tsx": "^4.23.0",
     "typescript": "^7.0.2",
