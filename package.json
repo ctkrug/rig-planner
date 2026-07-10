@@ -1,0 +1,22 @@
+{
+  "name": "rig-planner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tell it your GPU and RAM; it recommends the best local LLM + quantization to run right now.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "refresh-data": "tsx scripts/refresh-trending.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8",
+    "tsx": "^4.19.2"
+  }
+}
