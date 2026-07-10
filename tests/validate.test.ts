@@ -32,6 +32,16 @@ describe("validateRigInput", () => {
     expect(validateRigInput({ vramGb: "abc", ramGb: "32" }).ok).toBe(false);
   });
 
+  it("rejects a numeric prefix with trailing garbage, not a parseInt-style partial parse", () => {
+    expect(validateRigInput({ vramGb: "12abc", ramGb: "32" }).ok).toBe(false);
+    expect(validateRigInput({ vramGb: "12", ramGb: "32xyz" }).ok).toBe(false);
+  });
+
+  it("accepts a valid number with surrounding whitespace", () => {
+    const result = validateRigInput({ vramGb: "  12  ", ramGb: "32" });
+    expect(result).toEqual({ ok: true, spec: { vramGb: 12, ramGb: 32 } });
+  });
+
   it("rejects an implausibly large VRAM value", () => {
     const result = validateRigInput({ vramGb: "9999", ramGb: "32" });
     expect(result.ok).toBe(false);
