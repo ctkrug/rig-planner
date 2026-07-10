@@ -1,6 +1,12 @@
 // @vitest-environment jsdom
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { mountApp } from "../src/main";
+import { validateRigInput } from "../src/ui/validate";
+
+vi.mock("../src/ui/validate", async (importOriginal) => {
+  const actual = await importOriginal<typeof import("../src/ui/validate")>();
+  return { ...actual, validateRigInput: vi.fn(actual.validateRigInput) };
+});
 
 function submit(): void {
   const form = document.querySelector<HTMLFormElement>("#rig-form")!;
@@ -59,6 +65,18 @@ describe("app", () => {
 
     expect(Number(vramInput.value)).toBeGreaterThan(0);
     expect(Number(vramInput.value)).toBeLessThan(12);
+  });
+
+  it("does not leak the placeholder option text as gpuModel when no preset is selected", () => {
+    const vramInput = document.querySelector<HTMLInputElement>("#vram")!;
+    const ramInput = document.querySelector<HTMLInputElement>("#ram")!;
+    vramInput.value = "12";
+    ramInput.value = "32";
+
+    submit();
+
+    const raw = vi.mocked(validateRigInput).mock.calls[0][0];
+    expect(raw.gpuModel).toBeUndefined();
   });
 
   it("shows the honest empty-results message for a rig too small for the catalog", () => {
