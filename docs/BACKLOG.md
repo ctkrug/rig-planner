@@ -137,7 +137,7 @@ the whole pipeline is trustworthy.
 
 - [x] **3.4 Favicon and wordmark**
   Add a code-generated favicon (inline SVG, blueprint-cyan monogram) and a
-  designed wordmark treatment for "Rig Planner" in the header.
+  designed wordmark treatment for "Rigfit" in the header.
   - `index.html` references a custom favicon (no default Vite/browser
     globe icon).
   - The wordmark uses the Space Grotesk display font with deliberate

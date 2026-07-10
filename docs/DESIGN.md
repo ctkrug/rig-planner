@@ -2,7 +2,7 @@
 
 ## Aesthetic direction
 
-**Blueprint / technical.** Rig Planner is an engineering tool for planning
+**Blueprint / technical.** Rigfit is an engineering tool for planning
 hardware, so the page reads like a schematic: a deep blueprint-navy canvas
 with cyan linework, dimension-line accents, and monospace annotations next
 to clean technical headings — the fit badges read like inspection stamps on
@@ -60,7 +60,7 @@ plain borders.
 
 ## Juice plan (n/a — utility tool, not a game)
 
-Rig Planner is a data tool, not a game, so the game-feel checklist doesn't
+Rigfit is a data tool, not a game, so the game-feel checklist doesn't
 apply verbatim. The equivalent "feel good to use" moments this direction
 still commits to:
 

@@ -21,8 +21,8 @@ to manually track what's currently good.
 
 ## The core idea
 
-Reverse the usual flow. Instead of "pick a model, check if it fits," Rig
-Planner takes the hardware budget as the input and solves for the
+Reverse the usual flow. Instead of "pick a model, check if it fits," Rigfit
+takes the hardware budget as the input and solves for the
 best-fitting, currently-relevant model:
 
 1. **Input:** GPU VRAM, system RAM, optionally a specific GPU model for more
