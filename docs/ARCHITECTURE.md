@@ -87,6 +87,7 @@ npm install
 npm run dev         # http://localhost:5173
 npm test            # vitest — solver, trending, validate, format, gpu-presets,
                      #   render (jsdom), catalog schema, full app flow (jsdom)
+npm run test:coverage # vitest with v8 coverage report (line/branch/function)
 npm run typecheck
 npm run build        # → dist/, relative-path (base: "./") for subpath hosting
 npm run refresh-data # regenerate data/trending.json from live HF/HN signal
