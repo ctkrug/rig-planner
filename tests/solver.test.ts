@@ -72,6 +72,13 @@ describe("evaluateFit — RAM offload", () => {
     expect(result.offloaded).toBe(true);
   });
 
+  it("is yellow, not red, when the offloaded fraction sits exactly at the max ratio", () => {
+    const atBoundary = variant({ minVramGb: 50, sizeGb: 50, contextLength: 8192 });
+    const result = evaluateFit({ vramGb: 30, ramGb: 64 }, atBoundary);
+    expect(result.fit).toBe("yellow");
+    expect(result.offloaded).toBe(true);
+  });
+
   it("is red when RAM holds the offloaded weights but leaves too little for a minimal KV cache", () => {
     const huge = variant({ minVramGb: 48, sizeGb: 48, contextLength: 32768 });
     const result = evaluateFit({ vramGb: 12, ramGb: 41 }, huge);
