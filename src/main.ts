@@ -80,7 +80,7 @@ function wireForm(): void {
     const validation = validateRigInput({
       vramGb: vramInput.value,
       ramGb: ramInput.value,
-      gpuModel: gpuSelect.selectedOptions[0]?.textContent ?? undefined,
+      gpuModel: gpuSelect.value ? (gpuSelect.selectedOptions[0]?.textContent ?? undefined) : undefined,
     });
 
     if (!validation.ok) {
