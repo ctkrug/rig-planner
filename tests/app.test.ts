@@ -87,4 +87,52 @@ describe("app", () => {
     expect(document.querySelectorAll(".result-card").length).toBe(0);
     expect(document.querySelector(".results-empty")?.textContent).toMatch(/nothing/i);
   });
+
+  it("replaces the prior result set cleanly on a second submission with different values", () => {
+    const vramInput = document.querySelector<HTMLInputElement>("#vram") as HTMLInputElement;
+    const ramInput = document.querySelector<HTMLInputElement>("#ram") as HTMLInputElement;
+
+    vramInput.value = "12";
+    ramInput.value = "32";
+    submit();
+    const firstCount = document.querySelectorAll(".result-card").length;
+    expect(firstCount).toBeGreaterThan(0);
+
+    vramInput.value = "1";
+    ramInput.value = "1";
+    submit();
+
+    expect(document.querySelectorAll(".result-card").length).toBe(0);
+    expect(document.querySelector(".results-empty")).not.toBeNull();
+  });
+
+  it("recovers from an invalid submission and succeeds once the input is corrected", () => {
+    const vramInput = document.querySelector<HTMLInputElement>("#vram") as HTMLInputElement;
+    const ramInput = document.querySelector<HTMLInputElement>("#ram") as HTMLInputElement;
+
+    vramInput.value = "-5";
+    ramInput.value = "32";
+    submit();
+    expect(document.querySelector<HTMLParagraphElement>("#form-error")!.hidden).toBe(false);
+
+    vramInput.value = "12";
+    submit();
+
+    expect(document.querySelector<HTMLParagraphElement>("#form-error")!.hidden).toBe(true);
+    expect(document.querySelectorAll(".result-card").length).toBeGreaterThan(0);
+  });
+
+  it("does not crash when the GPU preset select holds a value with no matching preset", () => {
+    const gpuSelect = document.querySelector<HTMLSelectElement>("#gpu-preset") as HTMLSelectElement;
+    const vramInput = document.querySelector<HTMLInputElement>("#vram") as HTMLInputElement;
+
+    const stray = document.createElement("option");
+    stray.value = "stale-preset-id";
+    stray.textContent = "Stale preset";
+    gpuSelect.append(stray);
+    gpuSelect.value = "stale-preset-id";
+
+    expect(() => gpuSelect.dispatchEvent(new Event("change", { bubbles: true }))).not.toThrow();
+    expect(vramInput.value).toBe("");
+  });
 });
