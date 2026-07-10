@@ -1,5 +1,53 @@
 [
   {
+    "modelId": "meta-llama/Llama-3.2-3B-Instruct",
+    "displayName": "Llama 3.2 3B Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 2.0,
+    "contextLength": 131072,
+    "minVramGb": 3
+  },
+  {
+    "modelId": "meta-llama/Llama-3.2-3B-Instruct",
+    "displayName": "Llama 3.2 3B Instruct",
+    "quant": "Q8_0",
+    "sizeGb": 3.4,
+    "contextLength": 131072,
+    "minVramGb": 4
+  },
+  {
+    "modelId": "Qwen/Qwen2.5-3B-Instruct",
+    "displayName": "Qwen2.5 3B Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 1.9,
+    "contextLength": 32768,
+    "minVramGb": 3
+  },
+  {
+    "modelId": "google/gemma-2-2b-it",
+    "displayName": "Gemma 2 2B Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 1.7,
+    "contextLength": 8192,
+    "minVramGb": 3
+  },
+  {
+    "modelId": "microsoft/Phi-3.5-mini-instruct",
+    "displayName": "Phi-3.5 Mini Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 2.4,
+    "contextLength": 131072,
+    "minVramGb": 4
+  },
+  {
+    "modelId": "microsoft/Phi-3.5-mini-instruct",
+    "displayName": "Phi-3.5 Mini Instruct",
+    "quant": "Q8_0",
+    "sizeGb": 4.1,
+    "contextLength": 131072,
+    "minVramGb": 6
+  },
+  {
     "modelId": "meta-llama/Llama-3.1-8B-Instruct",
     "displayName": "Llama 3.1 8B Instruct",
     "quant": "Q4_K_M",
@@ -24,6 +72,14 @@
     "minVramGb": 6
   },
   {
+    "modelId": "Qwen/Qwen2.5-7B-Instruct",
+    "displayName": "Qwen2.5 7B Instruct",
+    "quant": "Q5_K_M",
+    "sizeGb": 5.4,
+    "contextLength": 32768,
+    "minVramGb": 7
+  },
+  {
     "modelId": "mistralai/Mistral-7B-Instruct-v0.3",
     "displayName": "Mistral 7B Instruct v0.3",
     "quant": "Q4_K_M",
@@ -32,12 +88,12 @@
     "minVramGb": 6
   },
   {
-    "modelId": "microsoft/Phi-3.5-mini-instruct",
-    "displayName": "Phi-3.5 Mini Instruct",
-    "quant": "Q4_K_M",
-    "sizeGb": 2.4,
-    "contextLength": 131072,
-    "minVramGb": 4
+    "modelId": "mistralai/Mistral-7B-Instruct-v0.3",
+    "displayName": "Mistral 7B Instruct v0.3",
+    "quant": "Q5_K_M",
+    "sizeGb": 5.1,
+    "contextLength": 32768,
+    "minVramGb": 7
   },
   {
     "modelId": "google/gemma-2-9b-it",
@@ -48,12 +104,68 @@
     "minVramGb": 8
   },
   {
+    "modelId": "google/gemma-2-9b-it",
+    "displayName": "Gemma 2 9B Instruct",
+    "quant": "Q5_K_M",
+    "sizeGb": 6.6,
+    "contextLength": 8192,
+    "minVramGb": 9
+  },
+  {
     "modelId": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "displayName": "DeepSeek-Coder-V2 Lite Instruct",
     "quant": "Q4_K_M",
     "sizeGb": 9.5,
     "contextLength": 32768,
     "minVramGb": 12
+  },
+  {
+    "modelId": "Qwen/Qwen2.5-14B-Instruct",
+    "displayName": "Qwen2.5 14B Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 9.0,
+    "contextLength": 32768,
+    "minVramGb": 11
+  },
+  {
+    "modelId": "Qwen/Qwen2.5-14B-Instruct",
+    "displayName": "Qwen2.5 14B Instruct",
+    "quant": "Q5_K_M",
+    "sizeGb": 10.5,
+    "contextLength": 32768,
+    "minVramGb": 13
+  },
+  {
+    "modelId": "microsoft/Phi-3-medium-14B-instruct",
+    "displayName": "Phi-3 Medium 14B Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 8.4,
+    "contextLength": 4096,
+    "minVramGb": 10
+  },
+  {
+    "modelId": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "displayName": "Mixtral 8x7B Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 26.4,
+    "contextLength": 32768,
+    "minVramGb": 30
+  },
+  {
+    "modelId": "Qwen/Qwen2.5-32B-Instruct",
+    "displayName": "Qwen2.5 32B Instruct",
+    "quant": "Q4_K_M",
+    "sizeGb": 19.8,
+    "contextLength": 32768,
+    "minVramGb": 22
+  },
+  {
+    "modelId": "CohereForAI/c4ai-command-r-v01",
+    "displayName": "Command R 35B",
+    "quant": "Q4_K_M",
+    "sizeGb": 20.5,
+    "contextLength": 128000,
+    "minVramGb": 24
   },
   {
     "modelId": "meta-llama/Llama-3.1-70B-Instruct",
