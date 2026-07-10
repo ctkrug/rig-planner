@@ -43,6 +43,13 @@ describe("evaluateFit — VRAM-only context truncation", () => {
     expect(result.achievableContext).toBe(4096);
   });
 
+  it("is red with zero achievable context when weights consume all available VRAM exactly", () => {
+    const result = evaluateFit(rig, variant({ minVramGb: rig.vramGb, sizeGb: 10 }));
+    expect(result.fit).toBe("red");
+    expect(result.achievableContext).toBe(0);
+    expect(result.offloaded).toBe(false);
+  });
+
   it("falls to red when even a minimal context can't fit in remaining VRAM", () => {
     const result = evaluateFit(rig, variant({ minVramGb: 11.9, sizeGb: 40, contextLength: 32768 }));
     expect(result.fit).toBe("red");
@@ -114,6 +121,16 @@ describe("recommend", () => {
     ];
     const result = recommend(rig, catalog, new Set(["b"]));
     expect(result.map((r) => r.variant.modelId)).toEqual(["b", "a"]);
+  });
+
+  it("keeps a trending variant first regardless of its position in the input catalog", () => {
+    const catalog = [
+      variant({ modelId: "non-trending", minVramGb: 6, sizeGb: 5 }),
+      variant({ modelId: "trending", minVramGb: 6, sizeGb: 5 }),
+      variant({ modelId: "also-non-trending", minVramGb: 6, sizeGb: 5 }),
+    ];
+    const result = recommend(rig, catalog, new Set(["trending"]));
+    expect(result[0]?.variant.modelId).toBe("trending");
   });
 
   it("still ranks a strictly better non-trending fit above a worse trending fit", () => {
